@@ -1,5 +1,7 @@
 import com.applitools.eyes.FileLogger
 import com.applitools.eyes.RectangleSize
+import com.applitools.eyes.StdoutLogHandler
+import com.applitools.eyes.TestResults
 import com.applitools.eyes.selenium.Eyes
 import com.applitools.eyes.selenium.StitchMode
 import geb.junit4.GebReportingTest
@@ -7,6 +9,8 @@ import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+
+import static org.junit.Assert.assertEquals
 
 @RunWith(JUnit4)
 class GebishOrgTest extends GebReportingTest {
@@ -16,11 +20,12 @@ class GebishOrgTest extends GebReportingTest {
     @Test
     void canGetToTheCurrentBookOfGeb() {
 
-        eyes.setApiKey('YourApiKey');
+        eyes.setApiKey("KjEidhJxEh3J1094111MLquUnWZGwfvG4Ptr63qUNtAkH00110");//System.getenv("APPLITOOLS_API_KEY"));
         eyes.setHideScrollbars(true);
-        eyes.setForceFullPageScreenshot(true);
-        eyes.setStitchMode(StitchMode.CSS);
-        //eyes.setLogHandler(new FileLogger("/Users/justin/repos/applitools/file.log", true, true));
+        //eyes.setForceFullPageScreenshot(true);
+        //eyes.setStitchMode(StitchMode.CSS);
+        eyes.setLogHandler(new FileLogger("/Users/justin/repos/applitools/file.log", true, true));
+        //eyes.setLogHandler(new StdoutLogHandler(true));
 
         to GebishOrgHomePage
 
@@ -39,7 +44,8 @@ class GebishOrgTest extends GebReportingTest {
 
         eyes.checkWindow("Checkpoint2");
 
-        eyes.close(false);
+        TestResults results = eyes.close(false);
+        assertEquals(true, results.isPassed());
     }
 
     @After

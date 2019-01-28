@@ -37,7 +37,7 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
     testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
 
-    testCompile "com.applitools:eyes-selenium-java3:3.31"
+    testCompile "com.applitools:eyes-selenium-java3:3.144.1"
     //runtime group: 'com.applitools', name: 'eyes-selenium-java3', version: '3.31'
 }
 
